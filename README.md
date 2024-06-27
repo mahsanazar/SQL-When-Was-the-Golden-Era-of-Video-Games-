@@ -40,13 +40,9 @@ FROM critics_avg_year_rating c
 INNER JOIN users_avg_year_rating u ON c.year = u.year
 WHERE c.avg_critic_score > 9 OR u.avg_user_score > 9
 ORDER BY c.year ASC;
-## How to Run
-Clone the repository:
-bash
-Copy code
-git clone https://github.com/yourusername/video-game-sales-analysis.git
-cd video-game-sales-analysis
-Execute the provided SQL queries in your SQL database to perform the analysis.
-Review the outputs saved as best_selling_games, critics_top_ten_years, and golden_years.
+
+
+
+
 ## Datasets
 The complete dataset with over 13,000 games can be found on Kaggle here.
