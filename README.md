@@ -19,7 +19,7 @@ The dataset includes two tables:
 ## Analysis Tasks
 
 ### 1. Find the Ten Best-Selling Games
--- best_selling_games
+#### -- best_selling_games
 SELECT *
 FROM game_sales
 ORDER BY games_sold DESC
@@ -27,14 +27,14 @@ LIMIT 10;
 
 ### 2. Find the Ten Years with the Highest Average Critic Score
 Query to find the ten years with the highest average critic score, where at least four games were released:
--- critics_top_ten_years
+#### -- critics_top_ten_years
 SELECT year, num_games, avg_critic_score 
 FROM critics_avg_year_rating
 ORDER BY avg_critic_score DESC
 LIMIT 10;
 ### 3. Find the Years Where Critics and Users Broadly Agreed
-Query to find the years where critics and users broadly agreed that the games released were highly rated:
--- golden_years
+ Query to find the years where critics and users broadly agreed that the games released were highly rated:
+#### -- golden_years
 SELECT c.year, c.num_games, (u.avg_user_score - c.avg_critic_score) AS diff, u.avg_user_score, c.avg_critic_score
 FROM critics_avg_year_rating c
 INNER JOIN users_avg_year_rating u ON c.year = u.year
