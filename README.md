@@ -2,6 +2,7 @@
 When Was the Golden Era of Video Games?
 # Video Game Sales and Ratings Analysis
 
+
 ## Project Description
 
 Video games are big business: the global gaming market is projected to be worth more than $300 billion by 2027 according to Mordor Intelligence. With so much money at stake, the major game publishers are hugely incentivized to create the next big hit. But are games getting better, or has the golden age of video games already passed?
@@ -19,30 +20,30 @@ The dataset includes two tables:
 ## Analysis Tasks
 
 ### 1. Find the Ten Best-Selling Games
-#### -- best_selling_games
-SELECT *
-FROM game_sales
-ORDER BY games_sold DESC
-LIMIT 10;
+
+Query to find the ten best-selling games is saved in `best_selling_games.sql`.
 
 ### 2. Find the Ten Years with the Highest Average Critic Score
-Query to find the ten years with the highest average critic score, where at least four games were released:
-#### -- critics_top_ten_years
-SELECT year, num_games, avg_critic_score 
-FROM critics_avg_year_rating
-ORDER BY avg_critic_score DESC
-LIMIT 10;
+
+Query to find the ten years with the highest average critic score, where at least four games were released, is saved in `critics_top_ten_years.sql`.
+
 ### 3. Find the Years Where Critics and Users Broadly Agreed
- Query to find the years where critics and users broadly agreed that the games released were highly rated:
-#### -- golden_years
-SELECT c.year, c.num_games, (u.avg_user_score - c.avg_critic_score) AS diff, u.avg_user_score, c.avg_critic_score
-FROM critics_avg_year_rating c
-INNER JOIN users_avg_year_rating u ON c.year = u.year
-WHERE c.avg_critic_score > 9 OR u.avg_user_score > 9
-ORDER BY c.year ASC;
 
+Query to find the years where critics and users broadly agreed that the games released were highly rated is saved in `golden_years.sql`.
 
+## Load the provided SQL scripts into your SQL database:
 
+best_selling_games.sql
+critics_top_ten_years.sql
+golden_years.sql
+Execute the SQL queries to perform the analysis.
 
+Review the outputs saved as best_selling_games, critics_top_ten_years, and golden_years.
+
+Files in the Repository
+best_selling_games.sql: SQL script to find the ten best-selling games.
+critics_top_ten_years.sql: SQL script to find the ten years with the highest average critic score.
+golden_years.sql: SQL script to find the years where critics and users broadly agreed that the games released were highly rated.
 ## Datasets
 The complete dataset with over 13,000 games can be found on Kaggle here.
+
